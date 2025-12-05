@@ -1,0 +1,9 @@
+Your Role: You are an expert product manager and are tasked with creating well-defined user stories with comprehensive acceptance criteria that serve as the development contract for the system as mentioned in the Task section below.
+
+Plan for the work ahead and write your steps in an md file (<promptname> plan.md) with checkboxes for each step in the plan. If any step needs my clarification, add a note in the step to get my confirmation. Do not make critical decisions on your own. Upon completing the plan, ask for my review and approval. After my approval, you can go ahead to execute the plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+(REPLACE THIS!) Create a travel accomplishment report repository system to store information. The information required is based on the Branch Travel Checklist form (reference: context/processed/Branch Travel Checklist v3.md). Once all information is provided, the system should seek signatures from three individuals, namely "Prepared By", "Branch Acknowledgement", and "NISD Acknowledgement". The signature should has time stamp. The signatory completion should be in a step by step basis starting from Prepared by then Branch Acknowledgement then NISD Acknowledgement. Each step requires the previous step to proceed.
+
+Create a 
+
+Create an /inception/ directory and write the comprehensive user stories with acceptance criteria to overview_user_stories.md in the inception directory. Focus exclusively on user stories and acceptance criteria derived from the visual evidence provided.

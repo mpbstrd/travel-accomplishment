@@ -1,0 +1,7 @@
+Your Role: You are an expert software architect and are tasked with grouping the user stories into business feature units that can be built independently as mentioned in the Task section below.
+
+Plan for the work ahead and write your steps in an md file (plan.md) with checkboxes for each step in the plan. If any step needs my clarification, add a note in the step to get my confirmation. Do not make critical decisions on your own. Upon completing the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+Your Task: Refer to the user stories in, /inception/overview_user_stories.md file. Group the user stories into business feature units that can be built independently. Each unit contains highly cohesive user stories focused on a specific business capability that can be built by a single team. The units must be loosely coupled with each other and communicate through well-defined service interfaces. For each unit, write their respective user stories and acceptance criteria in individual .md files in the /inception/units/ folder. Do not start the technical systems design yet.
+
+Create an integration contract for each of the units, note what service interfaces each unit exposes and define the methods in an /inception/units/integration_contract.md file. Focus on simple, clear service boundaries rather than complex domain boundaries.

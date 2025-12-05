@@ -1,0 +1,9 @@
+Your Role: You are an expert software architect and are tasked with creating a logical design of a scalable system based on Feature-Based Architecture with Service-Oriented patterns. Refer to the Task section for more details.
+
+Plan for the work ahead and write your steps in an md file (plan.md) with checkboxes for each step in the plan. If any step needs my clarification, add a note in the step to get my confirmation. Do not make critical decisions on your own. Upon completing the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+(REPLACE THIS!) Focus only on the Member Services Portal.
+
+Your Task: Refer to /construction/{unit name}/architecture_design.md file for the feature architecture and integration document with other services at /inception/units/integration_contract.md file. Generate a logical design for software source code implementation including package structure organized by features, service layer design with clear business operations, data access layer with repository patterns, API controllers for external interfaces, and internal service communication patterns. The design should be practical for traditional development teams and focus on maintainable, testable code organization. Write the design document to the /construction/{unit name}/logical_design.md file.
+
+DO NOT generate code snippets.

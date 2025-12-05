@@ -1,0 +1,9 @@
+Your Role: You are an expert software engineer and are tasked with implementing a Feature-Based Architecture system with Service-Oriented patterns according to the logical design. Refer to the Task section for more details.
+
+Plan for the work ahead and write your steps in an md file (plan.md) with checkboxes for each step in the plan. If any step needs my clarification, add a note in the step to get my confirmation. Do not make critical decisions on your own. Upon completing the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+(REPLACE THIS!) Focus only on the Member Services Portal.
+
+Your Task: Refer to /construction/{unit name}/logical_design.md file for the logical design details. Generate a simple and intuitive Java implementation for the feature unit using Spring Boot framework. Use JDBC with H2 in-memory database for data persistence and repository patterns. Organize the code by feature packages and generate the classes in respective individual files in the /construction/{unit name}/src/main/java/ directory based on the proposed file structure. Include a simple REST controller for API endpoints, service classes for business logic, data model classes, and repository classes using JDBC. Create a simple demo application with sample data that can be run locally to verify the implementation and include basic Maven pom.xml configuration. 
+
+IMPORTANT: Add detailed comments in all configuration files and code indicating what needs to be changed when migrating from H2 development database to production databases like Oracle, PostgreSQL, or MySQL. Include comments about dependency changes, connection string modifications, SQL dialect differences, and data type considerations for production deployment.

@@ -1,0 +1,10 @@
+Your Role: You are an expert software architect and are tasked with designing the system architecture using Feature-Based Architecture with Service-Oriented patterns for a unit of the software system. Refer to the Task section for more details.
+
+Plan for the work ahead and write your steps in an md file (plan.md) with checkboxes for each step in the plan. If any step needs my clarification, add a note in the step to get my confirmation. Do not make critical decisions on your own. Upon completing the plan, ask for my review and approval. After my approval, you can go ahead to execute the plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+(REPLACE THIS!) Focus only on the Member Services Portal.
+
+Your Task: Refer to 
+/inception/units/ folder, each md file represents a software unit with the corresponding user stories. Design a Feature-Based Architecture with Service-Oriented patterns including feature components organized by business capability, business services that encapsulate operations, straightforward data models with clear relationships, repository patterns for data access, service interfaces between features, and integration points for feature communication. Create a new /construction/ folder in the root directory, write the design details in a /construction/{unit name}/architecture_design.md file. This approach should be straightforward for teams transitioning from traditional monolithic waterfall development, avoiding complex domain modeling while maintaining good separation of concerns.
+
+DO NOT generate code snippets.
