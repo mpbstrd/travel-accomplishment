@@ -2,8 +2,13 @@ Your Role: You are an expert software architect and are tasked with creating a l
 
 Plan for the work ahead and write your steps in an md file (plan.md) with checkboxes for each step in the plan. If any step needs my clarification, add a note in the step to get my confirmation. Do not make critical decisions on your own. Upon completing the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-(REPLACE THIS!) Focus only on the Member Services Portal.
+Your Task: Refer to /construction/{unit name}/architecture_design.md file for the feature architecture and integration document with other services at /inception/units/integration_contract.md file. Generate a logical design for C# .NET 8 Windows Forms source code implementation including namespace/folder structure organized by features, service layer design with clear business operations, data access layer with repository patterns for SQLite, Windows Forms UI components, and internal service communication patterns. The design should be practical for traditional development teams and focus on maintainable, testable code organization. Write the design document to the /construction/{unit name}/logical_design.md file.
 
-Your Task: Refer to /construction/{unit name}/architecture_design.md file for the feature architecture and integration document with other services at /inception/units/integration_contract.md file. Generate a logical design for software source code implementation including package structure organized by features, service layer design with clear business operations, data access layer with repository patterns, API controllers for external interfaces, and internal service communication patterns. The design should be practical for traditional development teams and focus on maintainable, testable code organization. Write the design document to the /construction/{unit name}/logical_design.md file.
+Technical Context:
+- UI Layer: Windows Forms (Forms, UserControls, custom controls)
+- Business Layer: Service classes with business logic
+- Data Access Layer: Repository pattern with SQLite (ADO.NET or EF Core)
+- Models: POCOs for data transfer and domain entities
+- Utilities: Validation, security (bcrypt/Argon2), file handling
 
 DO NOT generate code snippets.

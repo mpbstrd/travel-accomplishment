@@ -2,10 +2,12 @@
 
 ## Platform
 
-- **Application Type**: Windows Desktop Application
+- **Application Type**: Windows Desktop Application (C# .NET 8 Windows Forms)
 - **Deployment**: Intranet only (no internet access required)
-- **Database**: Microsoft SQL Server (MSSQL)
+- **Database**: SQLite (embedded database file)
 - **Architecture**: Modular Monolith with 4 business units
+- **Framework**: .NET 8.0
+- **UI Framework**: Windows Forms
 
 ## Architecture Units
 
@@ -16,10 +18,13 @@
 
 ## Database
 
-- Single MSSQL database shared across units
-- Each unit owns specific tables/schemas
-- Referential integrity enforced at database level
+- Single SQLite database file shared across units
+- Each unit owns specific tables
+- Referential integrity enforced at database level with foreign keys
 - Soft delete pattern for user accounts and reports
+- Data Access: Repository pattern with ADO.NET or Entity Framework Core
+- Database File: Local file (e.g., TravelReports.db)
+- Migration Path: Design with comments for future MSSQL migration if needed
 
 ## Security
 
