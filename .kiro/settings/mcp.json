@@ -23,7 +23,9 @@
         "PYTHONUNBUFFERED": "1"
       },
       "disabled": false,
-      "autoApprove": []
+      "autoApprove": [
+        "read_document"
+      ]
     }
   }
 }

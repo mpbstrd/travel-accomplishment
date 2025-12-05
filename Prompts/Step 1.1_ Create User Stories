@@ -4,6 +4,4 @@ Plan for the work ahead and write your steps in an md file (<promptname> plan.md
 
 (REPLACE THIS!) Create a travel accomplishment report repository system to store information. The information required is based on the Branch Travel Checklist form (reference: context/processed/Branch Travel Checklist v3.md). Once all information is provided, the system should seek signatures from three individuals, namely "Prepared By", "Branch Acknowledgement", and "NISD Acknowledgement". The signature should has time stamp. The signatory completion should be in a step by step basis starting from Prepared by then Branch Acknowledgement then NISD Acknowledgement. Each step requires the previous step to proceed.
 
-Create a 
-
 Create an /inception/ directory and write the comprehensive user stories with acceptance criteria to overview_user_stories.md in the inception directory. Focus exclusively on user stories and acceptance criteria derived from the visual evidence provided.
