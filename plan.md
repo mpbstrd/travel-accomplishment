@@ -1,277 +1,191 @@
-# Plan: Grouping User Stories into Business Feature Units
+# Architecture Design Plan - Travel Accomplishment Report System
 
-## Project Overview
-Group the user stories from `/inception/overview_user_stories.md` into independent, loosely coupled business feature units that can be built by separate teams. Each unit will focus on a specific business capability with well-defined service interfaces.
+## Overview
+Design Feature-Based Architecture with Service-Oriented patterns for a C# .NET 8 Windows Forms desktop application. This plan covers all four business units with straightforward architecture suitable for teams transitioning from traditional monolithic waterfall development.
 
----
+## Critical Decisions Requiring Confirmation
+
+### 1. Data Access Technology
+- [x] **Decision**: Entity Framework Core
+  - ORM approach with less boilerplate
+  - Modern, productive, maintainable
+  - Code-first migrations for schema management
+
+### 2. Image Storage Strategy
+- [x] **Decision**: File system storage with paths in database
+  - Better performance for large files
+  - Simpler implementation
+  - Easier to manage and backup separately
+
+### 3. Service Communication Pattern
+- [x] **Decision**: Interface-based with dependency injection
+  - Loosely coupled architecture
+  - Testable and maintainable
+  - Clear service boundaries
+
+### 4. Session Management Approach
+- [x] **Decision**: Database-backed sessions
+  - Persistent across app restarts
+  - Reliable for desktop application
+  - Supports session timeout and management
 
 ## Execution Plan
 
-### Phase 1: Analysis and Unit Identification
-- [x] **Step 1.1**: Analyze all 10 epics and identify natural business boundaries
-  - Reviewed all 10 epics
-  - Identified desktop app requirements
-  - Simplified scope (no separate notification/analytics services)
+### Phase 1: Setup and Preparation
+- [x] Create `/construction/` folder structure
+- [x] Review all unit specifications and integration contracts
+- [x] Identify common patterns across all units
+- [x] Document architectural decisions
 
-- [x] **Step 1.2**: Identify cohesive business units based on:
-  - Single business capability focus
-  - High internal cohesion (related user stories)
-  - Low coupling with other units
-  - Can be built independently by one team
-  - Clear module boundaries for desktop app
-  - **CONFIRMED: 4 units identified**
+### Phase 2: Unit 1 - User Management & Authentication
+- [x] Create `/construction/unit1_user_management_authentication/` folder
+- [x] Design architecture for Unit 1:
+  - [x] Feature components (Login, User Management, Session Management)
+  - [x] Business services (AuthenticationService, UserManagementService, AuthorizationService)
+  - [x] Data models (User, UserSession, LoginAttempt, PasswordHistory)
+  - [x] Repository interfaces and implementations
+  - [x] Service interfaces for other units
+  - [x] Integration points
+- [x] Write `architecture_design.md` for Unit 1
+- [x] Mark as complete in this plan
 
-### Phase 2: Define Business Feature Units
-Based on requirements (Desktop app, MSSQL, Intranet, Simplified scope):
+### Phase 3: Unit 2 - Report Lifecycle Management
+- [x] Create `/construction/unit2_report_lifecycle_management/` folder
+- [x] Design architecture for Unit 2:
+  - [x] Feature components (Report Creation, Report Viewing, Search/Filter, Image Management, Export)
+  - [x] Business services (ReportManagementService, ReportStatusService, ImageManagementService, ReportExportService)
+  - [x] Data models (Report, NetworkEquipment, ActivityChecklist, ReportImage, ReportEditHistory)
+  - [x] Repository interfaces and implementations
+  - [x] Service interfaces for other units
+  - [x] Integration points with Unit 1
+- [x] Write `architecture_design.md` for Unit 2
+- [x] Mark as complete in this plan
 
-- [x] **Step 2.1**: Define Unit 1 - User Management & Authentication
-  - Covers: User accounts, login, authentication, password management, session management
-  - Epics: Epic 1 (User Account Management), Epic 8 (Security - partial)
-  - **CONFIRMED**
+### Phase 4: Unit 3 - Signature Workflow Engine
+- [x] Create `/construction/unit3_signature_workflow_engine/` folder
+- [x] Design architecture for Unit 3:
+  - [x] Feature components (Signature Entry, Workflow Management, Notifications)
+  - [x] Business services (SignatureService, WorkflowService, NotificationService)
+  - [x] Data models (ReportSignature, WorkflowState, Notification, SignatureAttempt)
+  - [x] Repository interfaces and implementations
+  - [x] Service interfaces for other units
+  - [x] Integration points with Units 1 and 2
+- [x] Write `architecture_design.md` for Unit 3
+- [x] Mark as complete in this plan
 
-- [x] **Step 2.2**: Define Unit 2 - Report Lifecycle Management
-  - Covers: Report creation, data entry, viewing, searching, filtering, editing, deletion, file storage
-  - Epics: Epic 2 (Report Creation), Epic 5 (Report Management), Epic 10 (Validation - partial)
-  - Includes: Image upload and storage (US-2.5)
-  - Includes: Basic export functionality (PDF/CSV)
-  - **CONFIRMED**
+### Phase 5: Unit 4 - System Administration
+- [x] Create `/construction/unit4_system_administration/` folder
+- [x] Design architecture for Unit 4:
+  - [x] Feature components (Audit Logs, Configuration, Backup/Restore, Statistics)
+  - [x] Business services (AuditLogService, ConfigurationService, BackupService, StatisticsService)
+  - [x] Data models (AuditLog, SystemConfiguration, BackupHistory, SystemStatistics)
+  - [x] Repository interfaces and implementations
+  - [x] Service interfaces for other units
+  - [x] Integration points with all units
+- [x] Write `architecture_design.md` for Unit 4
+- [x] Mark as complete in this plan
 
-- [x] **Step 2.3**: Define Unit 3 - Signature Workflow Engine
-  - Covers: Sequential signature workflow, signature validation, workflow enforcement
-  - Epics: Epic 3 (Sequential Signature Workflow)
-  - Includes: Simple in-app notifications for signature status
-  - **CONFIRMED**
+### Phase 6: Cross-Cutting Concerns
+- [x] Skipped (covered in integration_architecture.md)
 
-- [x] **Step 2.4**: Define Unit 4 - System Administration
-  - Covers: Audit logs, system configuration, backup/restore, role-based access control
-  - Epics: Epic 7 (System Administration), Epic 8 (Security - partial)
-  - **CONFIRMED**
+### Phase 7: Integration Architecture
+- [x] Create `/construction/integration_architecture.md`
+- [x] Document:
+  - [x] Application startup and initialization
+  - [x] Dependency injection container configuration
+  - [x] Database connection management
+  - [x] Service registration and lifetime management
+  - [x] Error handling and logging strategy
+  - [x] Transaction management approach
+- [x] Mark as complete in this plan
 
-**REMOVED UNITS** (Not needed for desktop app):
-- ~~Unit 4 - Notification Service~~ (Simple in-app notifications handled by Signature Workflow)
-- ~~Unit 5 - Analytics & Reporting~~ (Basic export in Report Lifecycle is sufficient)
-- ~~Unit 7 - File Storage Service~~ (Merged into Report Lifecycle Management)
+### Phase 8: Review and Finalization
+- [x] Review all architecture documents for consistency
+- [x] Ensure all integration points are documented
+- [x] Verify all service interfaces are defined
+- [x] Check that all database relationships are clear
+- [x] Validate against technical constraints (SQLite, Windows Forms, .NET 8)
+- [x] Final review with user
 
-### Phase 3: Create Unit Documentation
-- [x] **Step 3.1**: Create `/inception/units/` directory structure
+## Architecture Document Template
 
-- [x] **Step 3.2**: Write Unit 1 documentation
-  - File: `/inception/units/unit1_user_management_authentication.md`
-  - Include: Unit overview, user stories, acceptance criteria, dependencies, database tables
+Each unit's `architecture_design.md` will include:
 
-- [x] **Step 3.3**: Write Unit 2 documentation
-  - File: `/inception/units/unit2_report_lifecycle_management.md`
-  - Include: Unit overview, user stories, acceptance criteria, dependencies, database tables
-  - Include: File storage and basic export functionality
+1. **Unit Overview**
+   - Business capability
+   - Responsibilities
+   - Scope
 
-- [x] **Step 3.4**: Write Unit 3 documentation
-  - File: `/inception/units/unit3_signature_workflow_engine.md`
-  - Include: Unit overview, user stories, acceptance criteria, dependencies, database tables
-  - Include: Simple in-app notification requirements
+2. **Feature Components**
+   - List of features organized by business capability
+   - UI components (Windows Forms)
+   - Feature responsibilities
 
-- [x] **Step 3.5**: Write Unit 4 documentation
-  - File: `/inception/units/unit4_system_administration.md`
-  - Include: Unit overview, user stories, acceptance criteria, dependencies, database tables
+3. **Business Services**
+   - Service classes with clear responsibilities
+   - Public methods and operations
+   - Business logic encapsulation
 
-### Phase 4: Define Integration Contracts
-- [x] **Step 4.1**: Identify service interfaces for each unit
-  - Listed what each unit exposes to other units
-  - Listed what each unit consumes from other units
-  - Defined data contracts (request/response formats)
+4. **Data Models**
+   - Entity classes mapping to database tables
+   - Properties and relationships
+   - Validation rules
 
-- [x] **Step 4.2**: Create integration contract document
-  - File: `/inception/units/integration_contract.md`
-  - Included:
-    - Overview of all units and their responsibilities
-    - Service interface definitions for each unit
-    - Method signatures (conceptual)
-    - Data models shared between units
-    - Integration patterns and communication flows
-    - Dependency diagram
+5. **Repository Pattern**
+   - Repository interfaces
+   - Repository implementations
+   - Data access operations
 
-- [x] **Step 4.3**: Document cross-cutting concerns
-  - Identified shared concerns (validation, error handling, logging, security)
-  - Defined how units handle these concerns
-  - Documented integration patterns
+6. **Service Interfaces**
+   - Interfaces exposed to other units
+   - Data contracts (DTOs)
+   - Integration points
 
-### Phase 5: Validation and Review
-- [x] **Step 5.1**: Verify unit independence
-  - Each unit can be built independently
-  - Loose coupling through service interfaces
-  - Clear service boundaries defined
+7. **Dependencies**
+   - Dependencies on other units
+   - External dependencies
+   - Database dependencies
 
-- [x] **Step 5.2**: Verify completeness
-  - All user stories assigned to units
-  - No duplication across units
-  - All acceptance criteria preserved
+8. **Component Diagram**
+   - Visual representation of architecture
+   - Component relationships
+   - Data flow
 
-- [x] **Step 5.3**: Create unit summary document
-  - File: `/inception/units/README.md`
-  - Include: Overview of all units, quick reference guide, build order recommendations
+9. **Database Schema**
+   - Tables owned by this unit
+   - Relationships with other units' tables
+   - Indexes and constraints
 
----
+10. **Implementation Notes**
+    - Technology-specific guidance
+    - Best practices
+    - Common patterns
 
-## Critical Decisions - CONFIRMED ✓
+## Notes
 
-### 1. Unit Grouping Strategy - CONFIRMED
-**Final 4 Units:**
-1. User Management & Authentication
-2. Report Lifecycle Management (includes file storage and basic export)
-3. Signature Workflow Engine (includes simple in-app notifications)
-4. System Administration
+- Architecture design will NOT include code snippets (as per instructions)
+- Focus on clear component boundaries and responsibilities
+- Emphasize simplicity and maintainability
+- Suitable for teams familiar with traditional development
+- All designs will use SQLite (not MSSQL as mentioned in some unit docs)
+- Windows Forms UI framework throughout
+- .NET 8 platform
 
-**Removed:**
-- Notification Service (simple in-app notifications only)
-- Analytics & Reporting (basic export is sufficient)
+## Estimated Timeline
 
-### 2. Cross-Cutting Concerns - CONFIRMED
-- **Epic 9 (User Experience)**: Distributed across units (desktop app UI)
-- **Epic 10 (Data Validation)**: Each unit handles its own validation
-- **Security (Epic 8)**: Split between User Management (authentication) and System Admin (authorization)
-- **Epic 4 (Notifications)**: Simple in-app notifications in Signature Workflow unit
-- **Epic 6 (Analytics)**: Basic export functionality in Report Lifecycle unit
+- Phase 1: 30 minutes
+- Phase 2-5: 45 minutes per unit (3 hours total)
+- Phase 6: 30 minutes
+- Phase 7: 30 minutes
+- Phase 8: 30 minutes
+- **Total**: ~5.5 hours
 
-### 3. Architecture - CONFIRMED
-- **Desktop Application** (not web-based)
-- **Modular Monolith** architecture
-- **MSSQL Database** (shared, each unit owns its tables)
-- **Intranet only** deployment
-- **In-process communication** between units
-- **High-level conceptual** integration contracts
+## Success Criteria
 
-### 4. Build Dependencies - CONFIRMED
-**Recommended Build Order:**
-1. User Management & Authentication (foundation)
-2. Report Lifecycle Management (core functionality)
-3. Signature Workflow Engine (depends on Reports and Users)
-4. System Administration (can be built in parallel with others)
-
----
-
-## Assumptions
-
-1. Desktop application (Windows-based, likely WPF or WinForms)
-2. Single MSSQL database shared by all units
-3. Each unit owns specific tables/schemas in the database
-4. Units are modules within the same application (modular monolith)
-5. Units communicate through in-process interfaces/services
-6. Simple in-app notifications (no email integration needed)
-7. Basic export functionality (PDF/CSV) instead of analytics dashboards
-8. UI/UX requirements distributed across relevant units
-9. Data validation handled within each unit for its domain
-10. Integration contracts are conceptual (business operations, not technical APIs)
-11. Intranet deployment only (no internet access required)
-12. Focus is on business capabilities and clear module boundaries
-
----
-
-## Next Steps
-
-Please review this plan and provide:
-
-1. **Approval or modifications** to the proposed unit grouping
-2. **Answers** to the critical decisions above
-3. **Any additional requirements** for unit documentation
-4. **Confirmation** to proceed with execution
-
-Once approved, I will execute each step sequentially and mark them as complete.
-
----
-
-**Plan Created**: December 5, 2025  
-**Status**: Awaiting Review and Approval
-
-
----
-
-## Execution Summary
-
-### Completed Deliverables
-
-✅ **Phase 1: Analysis and Unit Identification** - COMPLETE
-- Analyzed all 10 epics from overview_user_stories.md
-- Identified 4 cohesive business units
-- Simplified scope based on desktop app requirements
-
-✅ **Phase 2: Define Business Feature Units** - COMPLETE
-- Defined 4 units with clear responsibilities:
-  1. User Management & Authentication
-  2. Report Lifecycle Management
-  3. Signature Workflow Engine
-  4. System Administration
-
-✅ **Phase 3: Create Unit Documentation** - COMPLETE
-- Created `/inception/units/` directory
-- Documented all 4 units with:
-  - Unit overview and scope
-  - Complete user stories with acceptance criteria
-  - Database table schemas
-  - Service interfaces exposed
-  - Dependencies and business rules
-  - UI components and validation rules
-
-✅ **Phase 4: Define Integration Contracts** - COMPLETE
-- Created `integration_contract.md` with:
-  - Service interface definitions for all units
-  - Data contracts and method signatures
-  - Integration patterns and flows
-  - Dependency diagram
-  - Cross-cutting concerns
-
-✅ **Phase 5: Validation and Review** - COMPLETE
-- Verified unit independence and loose coupling
-- Confirmed all user stories assigned to units
-- Created comprehensive README.md with:
-  - Unit overview and quick reference
-  - Build order recommendations
-  - Database schema summary
-  - Testing strategy
-
-### Files Created
-
-1. `/inception/units/unit1_user_management_authentication.md` - 7 user stories
-2. `/inception/units/unit2_report_lifecycle_management.md` - 12 user stories
-3. `/inception/units/unit3_signature_workflow_engine.md` - 8 user stories
-4. `/inception/units/unit4_system_administration.md` - 5 user stories
-5. `/inception/units/integration_contract.md` - Complete integration specification
-6. `/inception/units/README.md` - Unit summary and quick reference
-
-### Key Achievements
-
-- **32 user stories** organized into 4 independent units
-- **18 database tables** with clear ownership
-- **15+ service interfaces** defined with data contracts
-- **Clear build order**: Unit 1 → Unit 4 → Unit 2 → Unit 3
-- **Modular monolith** architecture for desktop app
-- **Simple, clear boundaries** between units
-- **Well-defined integration contracts** for team coordination
-
-### Architecture Decisions
-
-- **Modular Monolith**: All units in single desktop application
-- **Shared MSSQL Database**: Each unit owns specific tables
-- **In-Process Communication**: Synchronous method calls through interfaces
-- **Desktop Application**: Windows-based, intranet deployment
-- **Simplified Scope**: No separate notification/analytics services
-- **Build Order**: Sequential with some parallel options
-
----
-
-## Next Phase: Architecture Design
-
-The inception phase is now complete. The next step is **Step 2.1: Architecture Design** where you will:
-
-1. Design technical architecture for each unit
-2. Define technology stack and frameworks
-3. Design detailed database schema
-4. Design class structures and design patterns
-5. Create architecture diagrams
-
-Refer to `/Prompts/Step 2.1_ Architecture Design` for guidance.
-
----
-
-**Plan Status**: ✅ COMPLETE  
-**Execution Date**: December 5, 2025  
-**All Phases**: COMPLETE  
-**Ready for**: Architecture Design Phase
+- [ ] All four units have complete architecture designs
+- [ ] All service interfaces are clearly defined
+- [ ] All integration points are documented
+- [ ] Database schema is complete and consistent
+- [ ] Architecture is suitable for Windows Forms desktop app
+- [ ] Design is straightforward for traditional development teams
+- [ ] No code snippets included (design only)
